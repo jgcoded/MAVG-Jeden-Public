@@ -1,0 +1,21 @@
+C:\Users\Aaron-Windows\AppData\Local\Temporary Projects\Jeden\bin\Debug\Jeden.exe.config
+C:\Users\Aaron-Windows\AppData\Local\Temporary Projects\Jeden\obj\Debug\Jeden.csprojResolveAssemblyReference.cache
+C:\Users\Aaron-Windows\AppData\Local\Temporary Projects\Jeden\bin\Debug\Jeden.exe
+C:\Users\Aaron-Windows\AppData\Local\Temporary Projects\Jeden\bin\Debug\Jeden.pdb
+C:\Users\Aaron-Windows\AppData\Local\Temporary Projects\Jeden\bin\Debug\OpenTK.dll
+C:\Users\Aaron-Windows\AppData\Local\Temporary Projects\Jeden\bin\Debug\OpenTK.pdb
+C:\Users\Aaron-Windows\AppData\Local\Temporary Projects\Jeden\bin\Debug\OpenTK.xml
+C:\Users\Aaron-Windows\AppData\Local\Temporary Projects\Jeden\obj\Debug\Jeden.exe
+C:\Users\Aaron-Windows\AppData\Local\Temporary Projects\Jeden\obj\Debug\Jeden.pdb
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\Jeden\Jeden\bin\Debug\Jeden.exe.config
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\Jeden\Jeden\obj\Debug\Jeden.exe
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\Jeden\Jeden\obj\Debug\Jeden.pdb
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\MAVG-Jeden-Public\Jeden\bin\Debug\Jeden.exe.config
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\MAVG-Jeden-Public\Jeden\obj\Debug\Jeden.exe
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\MAVG-Jeden-Public\Jeden\obj\Debug\Jeden.pdb
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\MAVG-Jeden-Public\Jeden\bin\Debug\Jeden.exe
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\MAVG-Jeden-Public\Jeden\bin\Debug\Jeden.pdb
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\MAVG-Jeden-Public\Jeden\bin\Debug\OpenTK.dll
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\MAVG-Jeden-Public\Jeden\bin\Debug\OpenTK.pdb
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\MAVG-Jeden-Public\Jeden\bin\Debug\OpenTK.xml
+C:\Users\Aaron-Windows\Documents\Programming\Reddit\MAVG-Jeden-Public\Jeden\obj\Debug\Jeden.csprojResolveAssemblyReference.cache
