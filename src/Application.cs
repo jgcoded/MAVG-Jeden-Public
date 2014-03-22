@@ -16,9 +16,11 @@ namespace Project_Jeden.src
     {
         GameWindow window;
         InputHandler input;
+        int status;
 
         public Application()
         {
+            status = 0;
             window = new GameWindow();
             input = new InputHandler();
 
@@ -53,11 +55,17 @@ namespace Project_Jeden.src
             window.SwapBuffers();
         }
 
+        public void Exit(int status)
+        {
+            this.status = status;
+            window.Close();
+        }
+
         public int Run()
         {
             window.Run(60.0);
 
-            return 0;
+            return status;
         }
     }
 }
