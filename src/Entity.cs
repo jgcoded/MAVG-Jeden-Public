@@ -13,5 +13,9 @@ namespace Project_Jeden.src
         {
             pos = new Vector2D(0.0f, 0.0f);
         }
+
+        public Vector2D getPosition() {
+            return pos;
+        }
     }
 }
