@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Project_Jeden.src
 {
-    class PhysicsWorld
+    class PhysicsWorld : Object
     {
         Vector2D gravity;
 
-        public PhysicsWorld()
+        public PhysicsWorld() : base("PhysicsWorld")
         {
             gravity = new Vector2D(0, -9.8f);
         }
