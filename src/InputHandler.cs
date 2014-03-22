@@ -24,6 +24,12 @@ namespace Project_Jeden.src
     {
 
         Dictionary<ControlCode, Key> keyMap = new Dictionary<ControlCode,Key>();
+        private bool ATTACK = false;
+        private bool DOWN = false;
+        private bool JUMP = false;
+        private bool LEFT = false;
+        private bool RIGHT = false;
+        private bool UP = false;
 
         public InputHandler() {
             keyMap.Add(ControlCode.ATTACK, Key.Z);
@@ -33,30 +39,71 @@ namespace Project_Jeden.src
             keyMap.Add(ControlCode.RIGHT, Key.Right);
             keyMap.Add(ControlCode.UP, Key.Up);
         }
+
+        public bool getAttack() {
+            return ATTACK;
+        }
+
+        public bool getDown() {
+            return DOWN;
+        }
+
+        public bool getJump() {
+            return JUMP;
+        }
+
+        public bool getLeft() {
+            return LEFT;
+        }
+
+        public bool getRight() {
+            return RIGHT;
+        }
+
+        public bool getUp() {
+            return UP;
+        }
+
+        public void display() {
+            System.Console.Clear();
+            System.Console.WriteLine("ATTACK : " + getAttack());
+            System.Console.WriteLine("DOWN   : " + getDown());
+            System.Console.WriteLine("JUMP   : " + getJump());
+            System.Console.WriteLine("LEFT   : " + getLeft());
+            System.Console.WriteLine("RIGHT  : " + getRight());
+            System.Console.WriteLine("UP     : " + getUp());
+        }
+
         public void onKeyDown(KeyboardKeyEventArgs key) {
 
             if (key.Key.Equals(keyMap[ControlCode.ATTACK])) {
-                System.Console.WriteLine("ATTACK");
+                ATTACK = true;
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.DOWN]))
             {
-                System.Console.WriteLine("DOWN");
+                DOWN = true;
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.JUMP]))
             {
-                System.Console.WriteLine("JUMP");
+                JUMP = true;
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.LEFT]))
             {
-                System.Console.WriteLine("LEFT");
+                LEFT = true;
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.RIGHT]))
             {
-                System.Console.WriteLine("RIGHT");
+                RIGHT = true;display();
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.UP]))
             {
-                System.Console.WriteLine("UP");
+                UP = true;
+                display();
             }
 
         }
@@ -64,27 +111,33 @@ namespace Project_Jeden.src
         public void onKeyUp(KeyboardKeyEventArgs key) {
             if (key.Key.Equals(keyMap[ControlCode.ATTACK]))
             {
-                System.Console.WriteLine("-ATTACK");
+                ATTACK = false;
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.DOWN]))
             {
-                System.Console.WriteLine("-DOWN");
+                DOWN = false;
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.JUMP]))
             {
-                System.Console.WriteLine("-JUMP");
+                JUMP = false;
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.LEFT]))
             {
-                System.Console.WriteLine("-LEFT");
+                LEFT = false;
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.RIGHT]))
             {
-                System.Console.WriteLine("-RIGHT");
+                RIGHT = false;
+                display();
             }
             else if (key.Key.Equals(keyMap[ControlCode.UP]))
             {
-                System.Console.WriteLine("-UP");
+                UP = false;
+                display();
             }
         }
 
