@@ -28,6 +28,8 @@ namespace Project_Jeden.src
             window.Resize += (sender, e) => Resize();
             window.UpdateFrame += (sender, e) => UpdateFrame();
             window.RenderFrame += (sender, e) => RenderFrame();
+            window.KeyDown += (sender, e) => input.onKeyDown(e);
+            window.KeyUp += (sender, e) => input.onKeyUp(e);
         }
 
         public static int Main(string[] args)
