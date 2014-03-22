@@ -1,9 +1,0 @@
-c:\users\admin\documents\visual studio 2012\Projects\Project_Jeden\Project_Jeden\bin\Debug\Project_Jeden.exe.config
-c:\users\admin\documents\visual studio 2012\Projects\Project_Jeden\Project_Jeden\bin\Debug\Project_Jeden.exe
-c:\users\admin\documents\visual studio 2012\Projects\Project_Jeden\Project_Jeden\bin\Debug\Project_Jeden.pdb
-c:\users\admin\documents\visual studio 2012\Projects\Project_Jeden\Project_Jeden\obj\Debug\Project_Jeden.exe
-c:\users\admin\documents\visual studio 2012\Projects\Project_Jeden\Project_Jeden\obj\Debug\Project_Jeden.pdb
-C:\Users\Admin\documents\visual studio 2012\Projects\Project_Jeden\Project_Jeden\bin\Debug\OpenTK.dll
-C:\Users\Admin\documents\visual studio 2012\Projects\Project_Jeden\Project_Jeden\bin\Debug\OpenTK.pdb
-C:\Users\Admin\documents\visual studio 2012\Projects\Project_Jeden\Project_Jeden\bin\Debug\OpenTK.xml
-C:\Users\Admin\documents\visual studio 2012\Projects\Project_Jeden\Project_Jeden\obj\Debug\Project_Jeden.csprojResolveAssemblyReference.cache
