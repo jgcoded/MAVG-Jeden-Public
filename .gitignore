@@ -4,3 +4,4 @@
 *.jar
 [Bb]in/
 [Oo]bj/
+project/*

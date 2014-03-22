@@ -21,12 +21,6 @@ namespace Project_Jeden.src
 
     class GameWindow : OpenTK.GameWindow
     {
-
-        public static int Main(string[] args)
-        {
-            return 0;
-        }
-
         Camera camera;
         InputHandler inputHandler;
 
