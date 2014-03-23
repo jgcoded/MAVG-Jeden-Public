@@ -8,15 +8,15 @@ namespace Project_Jeden.src
 {
     class AudioSource
     {
-        int handle;
+        int sourceHandle;
         
-        AudioFile file;
+        AudioFile audioFile;
 
         public AudioSource()
         {
             ALError e;
 
-            handle = AL.GenBuffer();
+            sourceHandle = AL.GenBuffer();
             
             if ((e = AL.GetError()) != ALError.NoError)
                 Console.WriteLine("AL Error: AudioSource handle - " + 
@@ -27,9 +27,9 @@ namespace Project_Jeden.src
         {
             AL.GetError();
             ALError e;
-            this.file = file;
+            this.audioFile = file;
             
-            AL.Source(handle, ALSourcei.Buffer, this.file.GetDataHandle);
+            AL.Source(sourceHandle, ALSourcei.Buffer, this.audioFile.GetDataHandle);
 
             if((e = AL.GetError()) != ALError.NoError)
                 Console.WriteLine("Error attaching audio to source: " + 
@@ -40,7 +40,7 @@ namespace Project_Jeden.src
         public bool Play()
         {
             AL.GetError();
-            AL.SourcePlay(handle);
+            AL.SourcePlay(sourceHandle);
             
             ALError e;
             if ((e = AL.GetError()) != ALError.NoError)
@@ -56,7 +56,7 @@ namespace Project_Jeden.src
         public bool Stop()
         {
             AL.GetError();
-            AL.SourceStop(handle);
+            AL.SourceStop(sourceHandle);
 
             if (AL.GetError() != ALError.NoError)
             {
@@ -69,12 +69,12 @@ namespace Project_Jeden.src
 
         public void SetPosition(float x, float y, float z)
         {
-            AL.Source(handle, ALSource3f.Position, x, y, z);
+            AL.Source(sourceHandle, ALSource3f.Position, x, y, z);
         }
 
         ~AudioSource()
         {
-            AL.DeleteSource(handle);
+            AL.DeleteSource(sourceHandle);
         }
 
     }

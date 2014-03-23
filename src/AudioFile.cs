@@ -11,12 +11,12 @@ namespace Project_Jeden.src
     class AudioFile : Asset
     {
 
-        byte[] data;
-        int handle;
-
+        byte[] audioData;
+        int bufferHandle;
+        
         public AudioFile()
         {
-            handle = AL.GenBuffer();
+            bufferHandle = AL.GenBuffer();
         }
 
         // The following is taken directly from the OpenTK reference
@@ -25,7 +25,7 @@ namespace Project_Jeden.src
             int channels, bits_per_sample, sample_rate;
             ALError e;
 
-            data = LoadWave(File.Open(path, FileMode.Open), out channels,
+            audioData = LoadWave(File.Open(path, FileMode.Open), out channels,
                 out bits_per_sample, out sample_rate);
             
             var sound_format =
@@ -35,7 +35,7 @@ namespace Project_Jeden.src
                 channels == 2 && bits_per_sample == 16 ? ALFormat.Stereo16 :
                 (ALFormat)0; // unknown
             
-            AL.BufferData(handle, sound_format, data, data.Length, sample_rate);
+            AL.BufferData(bufferHandle, sound_format, audioData, audioData.Length, sample_rate);
             if ((e = AL.GetError()) != ALError.NoError)
             {
                 Console.WriteLine("There was an error loading file: " + path +
@@ -54,7 +54,7 @@ namespace Project_Jeden.src
 
         public int GetDataHandle
         {
-            get { return handle; }
+            get { return bufferHandle; }
         }
 
         /* I'm not sure what audio format the sound department has
@@ -108,8 +108,8 @@ namespace Project_Jeden.src
 
         ~AudioFile()
         {
-            if (handle != -1)
-                AL.DeleteBuffer(handle);
+            if (bufferHandle != -1)
+                AL.DeleteBuffer(bufferHandle);
         }
 
     }

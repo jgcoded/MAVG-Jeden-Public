@@ -10,12 +10,12 @@ namespace Project_Jeden.src
     class Environment : IDisposable
     {
 
-        AudioContext context;
+        AudioContext audioContext;
         private static Environment env = new Environment();
 
         private Environment() 
         {
-            context = new AudioContext();
+            audioContext = new AudioContext();
         }
         
         // AudioContexts are per process and not per thread
@@ -29,7 +29,7 @@ namespace Project_Jeden.src
 
         public void UseAudioContext()
         {
-            context.MakeCurrent();
+            audioContext.MakeCurrent();
         }
 
         // this is the position from where sounds are heard from
@@ -45,8 +45,8 @@ namespace Project_Jeden.src
 
         public void Dispose()
         {
-            if(context != null)
-                context.Dispose();
+            if(audioContext != null)
+                audioContext.Dispose();
         }
     }
 }
