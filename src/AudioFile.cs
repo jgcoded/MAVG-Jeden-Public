@@ -17,7 +17,6 @@ namespace Project_Jeden.src
         public AudioFile()
         {
             handle = AL.GenBuffer();
-            Console.WriteLine(handle);
         }
 
         // The following is taken directly from the OpenTK reference
@@ -26,7 +25,8 @@ namespace Project_Jeden.src
             int channels, bits_per_sample, sample_rate;
             ALError e;
 
-            data = LoadWave(File.Open(path, FileMode.Open), out channels, out bits_per_sample, out sample_rate);
+            data = LoadWave(File.Open(path, FileMode.Open), out channels,
+                out bits_per_sample, out sample_rate);
             
             var sound_format =
                 channels == 1 && bits_per_sample == 8 ? ALFormat.Mono8 :
@@ -38,7 +38,9 @@ namespace Project_Jeden.src
             AL.BufferData(handle, sound_format, data, data.Length, sample_rate);
             if ((e = AL.GetError()) != ALError.NoError)
             {
-                Console.WriteLine("There was an error loading file: " + path + " ; " + AL.GetErrorString(e));
+                Console.WriteLine("There was an error loading file: " + path +
+                    " ; " + AL.GetErrorString(e));
+
                 return false;
             }
 
@@ -55,7 +57,7 @@ namespace Project_Jeden.src
             get { return handle; }
         }
 
-        /* I'm not what audio format the sound department has
+        /* I'm not sure what audio format the sound department has
          * agreed to use, so for now, to make my life easier, I'll
          * use the example OpenTK audio format: wav
          * */

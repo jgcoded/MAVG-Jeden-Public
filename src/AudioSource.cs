@@ -19,7 +19,8 @@ namespace Project_Jeden.src
             handle = AL.GenBuffer();
             
             if ((e = AL.GetError()) != ALError.NoError)
-                Console.WriteLine("AL Error: AudioSource handle - " + AL.GetErrorString(e));
+                Console.WriteLine("AL Error: AudioSource handle - " + 
+                    AL.GetErrorString(e));
         }
 
         public void AttachAudio(AudioFile file)
@@ -31,7 +32,8 @@ namespace Project_Jeden.src
             AL.Source(handle, ALSourcei.Buffer, this.file.GetDataHandle);
 
             if((e = AL.GetError()) != ALError.NoError)
-                Console.WriteLine("Error attaching audio to source: " + file.path + "; " + AL.GetErrorString(e));
+                Console.WriteLine("Error attaching audio to source: " + 
+                    file.path + "; " + AL.GetErrorString(e));
 
         }
 
@@ -43,7 +45,8 @@ namespace Project_Jeden.src
             ALError e;
             if ((e = AL.GetError()) != ALError.NoError)
             {
-                Console.WriteLine("AL Error: error playing source: " + AL.GetErrorString(e));
+                Console.WriteLine("AL Error: error playing source: " + 
+                    AL.GetErrorString(e));
                 return false;
             }
 
