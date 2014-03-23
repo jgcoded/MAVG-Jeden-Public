@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Project_Jeden.src
 {
-    class OggFile
+    class OggFile : AudioFile
     {
+        public OggFile(string name) : base(name) { }
     }
 }

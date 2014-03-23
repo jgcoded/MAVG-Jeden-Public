@@ -5,8 +5,11 @@ using System.Text;
 
 namespace Project_Jeden.src
 {
-    class Asset : Object
+    abstract class Asset : Object
     {
+        public Asset(string name) : base(name)
+        {
+        }
 
         public virtual bool Load()
         {

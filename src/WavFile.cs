@@ -14,6 +14,8 @@ namespace Project_Jeden.src
 
         byte[] audioData;
 
+        public WavFile(string name) : base(name) { }
+
         public override bool Load()
         {
             int channels, bits_per_sample, sample_rate;

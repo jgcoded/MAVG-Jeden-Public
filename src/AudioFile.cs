@@ -8,12 +8,12 @@ using System.IO;
 
 namespace Project_Jeden.src
 {
-    class AudioFile : Asset
+    abstract class AudioFile : Asset
     {
 
         int bufferHandle;
         
-        public AudioFile()
+        public AudioFile(string name) : base(name)
         {
             ALError e;
 
