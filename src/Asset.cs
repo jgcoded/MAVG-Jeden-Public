@@ -8,12 +8,12 @@ namespace Project_Jeden.src
     class Asset : Object
     {
 
-        public bool Load()
+        public virtual bool Load()
         {
             return false;
         }
 
-        public bool LoadAsync()
+        public virtual bool LoadAsync()
         {
             return false;
         }
