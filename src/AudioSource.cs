@@ -9,7 +9,6 @@ namespace Project_Jeden.src
     class AudioSource
     {
         int sourceHandle;
-        AudioFile audioFile;
 
         public AudioSource()
         {
@@ -26,14 +25,12 @@ namespace Project_Jeden.src
         {
             AL.GetError();
             ALError e;
-            this.audioFile = file;
             
-            AL.Source(sourceHandle, ALSourcei.Buffer, this.audioFile.GetDataHandle);
+            AL.Source(sourceHandle, ALSourcei.Buffer, file.GetDataHandle);
 
             if((e = AL.GetError()) != ALError.NoError)
                 Console.WriteLine("Error attaching audio to source: " + 
                     file.path + "; " + AL.GetErrorString(e));
-
         }
 
         public bool Play()
@@ -64,6 +61,17 @@ namespace Project_Jeden.src
             }
 
             return true;
+        }
+
+        public bool IsPlaying 
+        {
+            get 
+            { 
+                int state;
+                AL.GetSource(sourceHandle, ALGetSourcei.SourceState, out state);
+                return (ALSourceState)state == ALSourceState.Playing;
+
+            }
         }
 
         public int GetSourceHandle { get { return sourceHandle; } }
