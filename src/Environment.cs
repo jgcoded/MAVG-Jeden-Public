@@ -13,9 +13,15 @@ namespace Project_Jeden.src
         AudioContext audioContext;
         private static Environment env = new Environment();
 
+        /* Listener properties */
+        Vector2D listenerPosition;
+        Vector2D listenerVelocity;
+
         private Environment() 
         {
             audioContext = new AudioContext();
+
+            listenerPosition = listenerVelocity = new Vector2D();
         }
         
         // AudioContexts are per process and not per thread
@@ -32,15 +38,30 @@ namespace Project_Jeden.src
             audioContext.MakeCurrent();
         }
 
-        // this is the position from where sounds are heard from
-        // in this case, the character's position
-        public void SetListenerPosition(float x, float y, float z)
+        public Vector2D ListenerPosition
         {
-            /* This AL property will be set many times as the
-             * character's position changes. Error checking should
-             * be done in debug builds only
-             * */
-            AL.Listener(ALListener3f.Position, x, y, z);
+            get
+            {
+                return listenerPosition;
+            }
+            set
+            {
+                listenerPosition = value;
+                AL.Listener(ALListener3f.Position, listenerPosition.x, listenerPosition.y, 0);
+            }
+        }
+
+        public Vector2D ListenerVelocity
+        {
+            get
+            {
+                return listenerVelocity;
+            }
+            set
+            {
+                listenerVelocity = value;
+                AL.Listener(ALListener3f.Velocity, listenerVelocity.x, listenerVelocity.y, 0);
+            }
         }
 
         public void Dispose()
