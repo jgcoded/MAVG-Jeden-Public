@@ -16,7 +16,13 @@ namespace Project_Jeden.src
         
         public AudioFile()
         {
+            ALError e;
+
             bufferHandle = AL.GenBuffer();
+
+            if ((e = AL.GetError()) != ALError.NoError)
+                Console.WriteLine("AL Error: AudioSource handle - " +
+                    AL.GetErrorString(e));
         }
 
         // The following is taken directly from the OpenTK reference
@@ -25,17 +31,9 @@ namespace Project_Jeden.src
             int channels, bits_per_sample, sample_rate;
             ALError e;
 
-            audioData = LoadWave(File.Open(path, FileMode.Open), out channels,
-                out bits_per_sample, out sample_rate);
-            
-            var sound_format =
-                channels == 1 && bits_per_sample == 8 ? ALFormat.Mono8 :
-                channels == 1 && bits_per_sample == 16 ? ALFormat.Mono16 :
-                channels == 2 && bits_per_sample == 8 ? ALFormat.Stereo8 :
-                channels == 2 && bits_per_sample == 16 ? ALFormat.Stereo16 :
-                (ALFormat)0; // unknown
-            
-            AL.BufferData(bufferHandle, sound_format, audioData, audioData.Length, sample_rate);
+            audioData = LoadWave(File.Open(path, FileMode.Open), out channels, out bits_per_sample, out sample_rate);
+            AL.BufferData(bufferHandle, GetSoundFormat(channels, bits_per_sample), audioData, audioData.Length, sample_rate);
+
             if ((e = AL.GetError()) != ALError.NoError)
             {
                 Console.WriteLine("There was an error loading file: " + path +
@@ -55,6 +53,16 @@ namespace Project_Jeden.src
         public int GetDataHandle
         {
             get { return bufferHandle; }
+        }
+
+        public static ALFormat GetSoundFormat(int channels, int bits)
+        {
+            switch (channels)
+            {
+                case 1: return bits == 8 ? ALFormat.Mono8 : ALFormat.Mono16;
+                case 2: return bits == 8 ? ALFormat.Stereo8 : ALFormat.Stereo16;
+                default: throw new NotSupportedException("The specified sound format is not supported.");
+            }
         }
 
         /* I'm not sure what audio format the sound department has
@@ -103,7 +111,7 @@ namespace Project_Jeden.src
                 rate = sample_rate;
 
                 return reader.ReadBytes((int)reader.BaseStream.Length);
-            }
+            }   
         }
 
         ~AudioFile()

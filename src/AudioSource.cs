@@ -9,14 +9,13 @@ namespace Project_Jeden.src
     class AudioSource
     {
         int sourceHandle;
-        
         AudioFile audioFile;
 
         public AudioSource()
         {
             ALError e;
 
-            sourceHandle = AL.GenBuffer();
+            sourceHandle = AL.GenSource();
             
             if ((e = AL.GetError()) != ALError.NoError)
                 Console.WriteLine("AL Error: AudioSource handle - " + 
@@ -66,6 +65,8 @@ namespace Project_Jeden.src
 
             return true;
         }
+
+        public int GetSourceHandle { get { return sourceHandle; } }
 
         public void SetPosition(float x, float y, float z)
         {
